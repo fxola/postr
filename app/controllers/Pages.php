@@ -243,9 +243,10 @@ class Pages extends Controller
         redirect('pages/login');
     }
 
+    
     public function isLoggedIn()
     {
-        
+
         if(isset($_SESSION['user_id']))
         {
             return true;
