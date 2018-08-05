@@ -17,12 +17,12 @@
           </div>
           <div class="form-group">
             <label for="password">Password: <sup>*</sup></label>
-            <input type="password" name="password" class="form-control form-control-lg <?php echo (!empty($data['password_error'])) ? 'is-invalid' : ''; ?>" value="<?php echo $data['password']; ?>">
+            <input type="password" name="password" placeholder ="must not be less than six characters" class="form-control form-control-lg <?php echo (!empty($data['password_error'])) ? 'is-invalid' : ''; ?>" value="<?php echo $data['password']; ?>">
             <span class="invalid-feedback"><?php echo $data['password_error']; ?></span>
           </div>
           <div class="form-group">
             <label for="confirm_password">Confirm Password: <sup>*</sup></label>
-            <input type="password" name="confirm_password" class="form-control form-control-lg <?php echo (!empty($data['confirm_password_error'])) ? 'is-invalid' : ''; ?>" value="<?php echo $data['confirm_password']; ?>">
+            <input type="password"  name="confirm_password" class="form-control form-control-lg <?php echo (!empty($data['confirm_password_error'])) ? 'is-invalid' : ''; ?>" value="<?php echo $data['confirm_password']; ?>">
             <span class="invalid-feedback"><?php echo $data['confirm_password_error']; ?></span>
           </div>
 
@@ -31,7 +31,7 @@
               <input type="submit" value="Register" class="btn btn-success btn-block">
             </div>
             <div class="col">
-              <a href="<?php echo URLROOT; ?>/users/login" class="btn btn-light btn-block">Have an account? Login</a>
+              <a href="<?php echo URLROOT; ?>/pages/login" class="btn btn-light btn-block">Have an account? Login</a>
             </div>
           </div>
         </form>

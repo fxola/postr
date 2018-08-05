@@ -185,7 +185,7 @@ class Pages extends Controller
                 if($loggedInUser)
                 {
                     //Create Session
-                    die('success');
+                    $this->createUserSession($loggedInUser);
                 }
                 else
                 {
@@ -218,6 +218,41 @@ class Pages extends Controller
 
         }
 
-	}
+    }
+    
+
+    public function createUserSession($user)
+    {
+        $_SESSION['user_id'] = $user->id;
+
+        $_SESSION['name'] = $user->name;
+
+        $_SESSION['email'] = $user->email;
+
+        redirect('pages/index');
+    }
+
+    public function logout()
+    {
+        unset($_SESSION['user_id']);
+        unset($_SESSION['user_id']);
+        unset($_SESSION['user_id']);
+
+        session_destroy();
+
+        redirect('pages/login');
+    }
+
+    public function isLoggedIn()
+    {
+        if(isset($_SESSION['user_id']))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 
 }
