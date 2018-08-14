@@ -33,7 +33,8 @@ class User
     {
      $query = $this->db->query("insert into users (name, email, password) values (:name, :email, :password)");
 
-        try{
+        try
+        {
 
         //bind values
         $this->db->bind(':name', $data['name']);

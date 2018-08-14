@@ -30,7 +30,6 @@
  		$dsn = 'mysql:host='. $this->host .'; dbname=' . $this->db_name;
  			
 
-
  		//create new PDO instance
  		try
  		{

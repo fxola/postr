@@ -229,7 +229,7 @@ class Pages extends Controller
 
         $_SESSION['email'] = $user->email;
 
-        redirect('pages/index');
+        redirect('posts/index');
     }
 
     public function logout()
@@ -244,17 +244,6 @@ class Pages extends Controller
     }
 
     
-    public function isLoggedIn()
-    {
-
-        if(isset($_SESSION['user_id']))
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
+ 
 
 }
