@@ -22,5 +22,27 @@ class Post
 
 		return $this->db->resultSet();
 	}
+
+
+	public function addPost($userPost,$userId)
+	{
+
+		try
+		{
+			$query = $this->db->query('insert into posts (post, user_id) values (:userPost , :userId)');
+
+			$this->db->bind(':userPost', $userPost);
+
+			$this->db->bind(':userId', $userId);
+
+			$this->db->execute();
+
+			return true;
+		}
+		catch(PDOExceoption $e)
+		{
+			handle_error($query, $e->getMessage());
+		}
+	}
 }
 ?>

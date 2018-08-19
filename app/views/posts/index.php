@@ -1,23 +1,22 @@
 <?php require APPROOT .'/views/inc/header.php'; ?>
 <div class="container">
-<form action="" method="post">
+<form action="<?php echo URLROOT;?>/posts/index" method="post">
 	<div class="row">
 		<div class="col-md-8">
 			<textarea name="post"  class="w-100">
 
 			</textarea>
-			
 		</div>
 
 		<div class="col-md-4">
-			<a href="<?php echo URLROOT;?>/posts/add" name ="submit" class="pull-right btn btn-outline btn-success">
-				<i class="fa fa-plus"></i> Post
-			</a>
+		<!-- <i class="fa fa-plus"></i> -->
+			<input  type ="submit" name ="submit" class="pull-right btn btn-outline btn-success">
 		</div>
 	</form>
 	</div>
+	
 	<?php
-
+		flash('post_success');
 	foreach($data['userPosts'] as $user):
 	?>
 		<div class="card card-body mt-5 mb-5 bg-primary">
