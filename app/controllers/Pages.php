@@ -9,6 +9,10 @@ class Pages extends Controller
 
     public function index()
     {
+        if(isLoggedIn())
+        {
+            redirect('posts');
+        }
         $this->view('pages/index');
     }
 
