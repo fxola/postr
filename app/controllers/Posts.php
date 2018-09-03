@@ -24,7 +24,7 @@ class Posts Extends Controller
 
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
-            $userPost = $_POST['post'];
+            $userPost = trim($_POST['post']);
 
             $userId = $_SESSION['user_id'];
 
@@ -32,7 +32,7 @@ class Posts Extends Controller
 
             if($posted)
             {
-                flash('post_success', 'Post Added Successfully');
+                flash('post_success', 'Posted Successfully');
             }
 
             $userPosts = $this->postModel->getPostDetails();
@@ -47,19 +47,30 @@ class Posts Extends Controller
         else
         {
             //fetch posts
-    	$userPosts = $this->postModel->getPostDetails();
+            $userPosts = $this->postModel->getPostDetails();
 
-		$data = [
-			'userPosts' => $userPosts
-		];
-         
-        //load view and pass posts
-    	$this->view('posts/index', $data);
+            $data = [
+                'userPosts' => $userPosts
+            ];
+            
+            //load view and pass posts
+            $this->view('posts/index', $data);
         }
 
         
     }
 
+
+    public function show($id)
+    {
+        $posts = $this->postModel->getPostById($id);
+
+        $data = [
+            'posts' => $posts
+        ];
+
+        $this->view('posts/show', $data);
+    }
 
     
 }

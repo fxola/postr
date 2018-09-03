@@ -12,13 +12,9 @@ class Post
 	public function getPostDetails()
 	{
 		//Query db for posts
-		$this->db->query("select *, 
-							posts.id as postId, 
-							users.id as userId
-							from posts
-							inner join users
-							on posts.user_id = users.id
-							order by posts.created_at desc");
+		$this->db->query("select *, posts.id as postId, users.id as userId from posts 
+									inner join users on posts.user_id = users.id 
+									order by posts.created_at desc");
 
 		return $this->db->resultSet();
 	}
@@ -43,6 +39,28 @@ class Post
 		{
 			handle_error($query, $e->getMessage());
 		}
+	}
+
+
+	public function getPostById($id)
+	{
+		try
+		{
+			$query = $this->db->query('select * from posts where id = :id');
+
+			$this->db->bind(':id', $id);
+
+			$result = $this->db->row();
+
+			return $result;
+		}
+
+		catch(PDOException $e)
+		{
+			handle_error($query, $e->getMessage());
+		}
+
+
 	}
 }
 ?>
