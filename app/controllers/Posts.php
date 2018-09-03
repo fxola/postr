@@ -59,7 +59,7 @@ class Posts Extends Controller
 
         
     }
-
+////////////////////////////////
 
     public function show($id)
     {
